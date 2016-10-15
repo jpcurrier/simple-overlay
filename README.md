@@ -1,2 +1,3 @@
-# simple-pop-up
+# Simple Overlay
+
 Basic jQuery plugin
