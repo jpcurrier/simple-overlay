@@ -1,0 +1,61 @@
+/* overlay */
+.overlay{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+	padding: 25px;
+	background-color: rgba( 0, 0, 0, .75 );
+	text-align: center;
+}
+.overlay > div{
+	height: 100%;
+}
+.overlay > div:before{
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	margin-left: -0.25em;
+}
+.overlay figure{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	max-height: 100%;
+	padding: 10px;
+	background-color: #fff;
+	line-height: 0;
+	-webkit-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+	-moz-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+	box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+}
+.overlay img{
+	max-height: 100%;
+}
+.overlay .close{
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #fff;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background-color: #000;
+	color: #fff;
+	-webkit-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+	-moz-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+	box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
+	outline: none;
+}
+.overlay .close:before{
+	content: '\00d7';
+}
+.overlay-open{
+	overflow: hidden;
+}
