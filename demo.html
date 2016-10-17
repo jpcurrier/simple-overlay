@@ -6,11 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simple Overlay</title>
   <link rel="stylesheet" href="simple-overlay/simple-overlay.css">
+  <style>
+    a{
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-size: 100% 100%;
+    }
+  </style>
 </head>
 
 <body>
+  <a class="launch-overlay" data-group="gallery-1" href="img/AS8-13-2329.jpg" style="background-image: url( img/AS8-13-2329-t.jpg );"></a>
+  <a class="launch-overlay" data-group="gallery-1" href="img/790106-0203_Voyager_58M_to_31M_reduced.gif" style="background-image: url( img/790106-0203_Voyager_58M_to_31M_reduced-t.jpg );"></a>
+  <a class="launch-overlay" data-group="gallery-1" href="img/LRO_Tycho_Central_Peak.jpg" style="background-image: url( img/LRO_Tycho_Central_Peak-t.jpg );"></a>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="simple-overlay/simple-overlay.js"></script>
+  <script>
+    $( '.launch-overlay' ).simpleOverlay();
+  </script>
 </body>
 
 </html>
