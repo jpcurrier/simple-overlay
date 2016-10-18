@@ -64,9 +64,26 @@
 		}
 
 		// group navigation
+		$( document ).on( 'mouseenter', '.simple-overlay .next', function(){
+			$( '.simple-overlay' ).addClass( 'next-o' );
+		} );
+		$( document ).on( 'mouseleave', '.simple-overlay .next', function(){
+			$( '.simple-overlay' ).removeClass( 'next-o' );
+		});
+		$( document ).on( 'mouseenter', '.simple-overlay .prev', function(){
+			$( '.simple-overlay' ).addClass( 'prev-o' );
+		} );
+		$( document ).on( 'mouseleave', '.simple-overlay .prev', function(){
+			$( '.simple-overlay' ).removeClass( 'prev-o' );
+		});
 		$( document ).on( 'click', '.simple-overlay .prev, .simple-overlay .next', function( e ){
 			var $current = $( '.simple-overlay.on' ),
 				direction = $( e.currentTarget ).attr( 'class' );
+
+			if( $( e.currentTarget ).hasClass( 'touch' ) ){
+				e.stopPropagation();
+				direction = direction.replace( ' touch', '' );
+			}
 
 			var group = [];
 			$( '.simple-overlay[ data-group="' + $( this ).closest( '.simple-overlay' ).attr( 'data-group' ) + '" ]' ).each( function(){
@@ -119,13 +136,17 @@
 			img.onload = function(){
 				$( 'body' ).append(
 					'<div class="simple-overlay' + groupClass + '" data-overlay="' + overlayID + '"' + group + '>' +
+						'<button class="close"><div><div></div></div></button>' +
+						'<button class="prev touch"><div></div></button>' +
+						'<button class="next touch"><div></div></button>' +
 						'<div>' +
-							'<figure data-natural-width="' + this.width + '" data-natural-height="' + this.height + '">' +
-								'<img src="' + src + '">' +
-								'<button class="prev"><div></div></button>' +
-								'<button class="next"><div></div></button>' +
-								'<button class="close"></button>' +
-							'</figure>' +
+							'<div class="wrap-slide">' +
+								'<figure data-natural-width="' + this.width + '" data-natural-height="' + this.height + '">' +
+									'<img src="' + src + '">' +
+									'<button class="prev"></button>' +
+									'<button class="next"></button>' +
+								'</figure>' +
+							'</div>' +
 						'</div>' +
 					'</div>'
 				);

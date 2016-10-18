@@ -10,184 +10,219 @@
   left: 0;
   z-index: 100;
   display: none;
-  /*background-color: rgba( 0, 0, 0, .75 );*/
   background-color: rgba( 255, 255, 255, .96 );
 }
-.simple-overlay figure,
-.simple-overlay button > div{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-.simple-overlay{ /* can simplify this + > div? */
-	position: fixed;
+.simple-overlay{
+  position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	z-index: 101;
 	display: none;
-	padding: 35px;
-	text-align: center;
+	padding: 40px 30px;
 }
-.simple-overlay > div{ /* can simplify this + parent? */
-	height: 100%;
+.simple-overlay > div{
+  display: table;
+  width: 100%;
+  height: 100%;
 }
-.simple-overlay > div:before{ /* use table instead? */
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	height: 100%;
-	margin-left: -0.25em;
+.simple-overlay .wrap-slide{
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 0;
 }
 .simple-overlay figure{
-	position: relative;
-	display: inline-block;
-	vertical-align: middle;
-	max-height: 100%;
-	/*padding: 10px;*/
-  margin: 0;
-	/*background-color: #fff;*/
-	line-height: 0;
-	/*-webkit-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
-	-moz-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
-	box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );*/
+  position: relative;
+  margin: 0 auto;
 }
+
 .simple-overlay img{
 	max-width: 100%;
 	height: auto;
 	max-height: 100%;
 }
-.simple-overlay .close,
-.simple-overlay .prev > div,
-.simple-overlay .next > div{
-  position: absolute;
-  width: 30px;
-	height: 30px;
-  padding: 0;
-}
-.simple-overlay .close,
-.simple-overlay .prev,
-.simple-overlay .next{
-  -o-transition: all 200ms ease-out;
-  -moz-transition: all 200ms ease-out;
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
-}
 .simple-overlay .close{
-	/*top: -20px;
-	right: -20px;*/
-  top: -30px;
-  right: -30px;
-  opacity: 0.12;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
 	outline: none;
 }
-.simple-overlay .close:hover{
-  opacity: 1;
+.simple-overlay .close > div:before,
+.simple-overlay .close > div:after,
+.simple-overlay .close > div > div:before,
+.simple-overlay .close > div > div:after{
+  -o-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
 }
-.simple-overlay .close:before,
-.simple-overlay .close:after{
-  content: '';
+.simple-overlay .close > div{
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  width: 40px;
+  margin: 0 auto;
+}
+.simple-overlay .close > div > div,
+.simple-overlay .prev.touch > div,
+.simple-overlay .next.touch > div{
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   width: 20px;
-  height: 2px;
+  height: 1px;
+  margin: auto;
+}
+.simple-overlay .close > div > div:before,
+.simple-overlay .close > div > div:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0px;
+  height: 1px;
+  background-color: #000;
+}
+.simple-overlay .close > div > div:before{
+  right: 50%;
+}
+.simple-overlay .close > div > div:after{
+  left: 50%;
+}
+.simple-overlay.prev-o .close > div > div:before,
+.simple-overlay.prev-o .close > div > div:after,
+.simple-overlay.next-o .close > div > div:before,
+.simple-overlay.next-o .close > div > div:after,
+.simple-overlay .prev.touch > div:before,
+.simple-overlay .prev.touch > div:after,
+.simple-overlay .next.touch > div:before,
+.simple-overlay .next.touch > div:after,
+.simple-overlay .prev.touch:before,
+.simple-overlay .prev.touch:after,
+.simple-overlay .next.touch:before,
+.simple-overlay .next.touch:after{
+  width: 10px;
+}
+.simple-overlay .close > div:before,
+.simple-overlay .close > div:after,
+.simple-overlay .prev.touch:before,
+.simple-overlay .prev.touch:after,
+.simple-overlay .next.touch:before,
+.simple-overlay .next.touch:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
   margin: auto;
   background-color: #000;
 }
-.simple-overlay .close:before{
-  -ms-transform: rotate( 45deg );
-	-webkit-transform: rotate( 45deg );
-	transform: rotate( 45deg );
+.simple-overlay .close > div:before,
+.simple-overlay .close > div:after{
+  width: 20px;
 }
-.simple-overlay .close:after{
-  -ms-transform: rotate( -45deg );
-	-webkit-transform: rotate( -45deg );
-	transform: rotate( -45deg );
+.simple-overlay .close > div:before{
+  -ms-transform: translateX( 0px ) rotate( 45deg ) translateY( 0px );
+	-webkit-transform: translateX( 0px ) rotate( 45deg ) translateY( 0px );
+	transform: translateX( 0px ) rotate( 45deg ) translateY( 0px );
+}
+.simple-overlay .close > div:after{
+  -ms-transform: translateX( 0px ) rotate( -45deg ) translateY( 0px );
+	-webkit-transform: translateX( 0px ) rotate( -45deg ) translateY( 0px );
+	transform: translateX( 0px ) rotate( -45deg ) translateY( 0px );
+}
+.simple-overlay.prev-o .close > div:before,
+.simple-overlay.prev-o .close > div:after,
+.simple-overlay.next-o .close > div:before,
+.simple-overlay.next-o .close > div:after{
+  width: 10px;
+}
+.simple-overlay.prev-o .close > div:before,
+.simple-overlay .prev.touch:before{
+  -ms-transform: translateX( -4px ) rotate( 45deg ) translateY( 5px );
+	-webkit-transform: translateX( -4px ) rotate( 45deg ) translateY( 5px );
+	transform: translateX( -4px ) rotate( 45deg ) translateY( 5px );
+}
+.simple-overlay.prev-o .close > div:after,
+.simple-overlay .prev.touch:after{
+  -ms-transform: translateX( -4px ) rotate( -45deg ) translateY( -5px );
+	-webkit-transform: translateX( -4px ) rotate( -45deg ) translateY( -5px );
+	transform: translateX( -4px ) rotate( -45deg ) translateY( -5px );
+}
+.simple-overlay.next-o .close > div:before,
+.simple-overlay .next.touch:before{
+  -ms-transform: translateX( 4px ) rotate( 45deg ) translateY( -5px );
+	-webkit-transform: translateX( 4px ) rotate( 45deg ) translateY( -5px );
+	transform: translateX( 4px ) rotate( 45deg ) translateY( -5px );
+}
+.simple-overlay.next-o .close > div:after,
+.simple-overlay .next.touch:after{
+  -ms-transform: translateX( 4px ) rotate( -45deg ) translateY( 5px );
+	-webkit-transform: translateX( 4px ) rotate( -45deg ) translateY( 5px );
+	transform: translateX( 4px ) rotate( -45deg ) translateY( 5px );
 }
 .simple-overlay .prev,
 .simple-overlay .next{
   position: absolute;
-  top: 0;
-  bottom: 0;
   display: none;
-  width: 50%;
   padding: 0;
   border: none;
   background-color: transparent;
-  opacity: 0;
   cursor: pointer;
   outline: none;
+}
+.simple-overlay figure .prev,
+.simple-overlay figure .next{
+  top: 0;
+  bottom: 0;
+  width: 50%;
 }
 .simple-overlay.grouped .prev,
 .simple-overlay.grouped .next{
   display: block;
 }
-.simple-overlay .prev:hover,
-.simple-overlay .next:hover{
-  opacity: 1;
-}
-.simple-overlay .prev{
+.simple-overlay figure .prev{
   left: 0;
 }
-.simple-overlay .next{
+.simple-overlay figure .next{
   right: 0;
 }
-.simple-overlay .prev > div,
-.simple-overlay .next > div{
+.simple-overlay .prev.touch,
+.simple-overlay .next.touch{
   top: 0;
-  bottom: 0;
-  /*-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;*/
-  /*-webkit-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
-	-moz-box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );
-	box-shadow: 0 1px 10px rgba( 0, 0, 0, .9 );*/
-  margin: auto 0;
+  right: 0;
+  left: 0;
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+body.touch .simple-overlay .prev.touch,
+body.touch .simple-overlay .next.touch{
+  display: block;
+}
+.simple-overlay .prev.touch{
+  -ms-transform: translateX( -40px );
+	-webkit-transform: translateX( -40px );
+	transform: translateX( -40px );
+}
+.simple-overlay .next.touch{
+  -ms-transform: translateX( 40px );
+	-webkit-transform: translateX( 40px );
+	transform: translateX( 40px );
+}
+.simple-overlay .prev.touch > div,
+.simple-overlay .next.touch > div{
   background-color: #000;
-}
-.simple-overlay .prev > div{
-  left: 30px;
-}
-.simple-overlay .next > div{
-  right: 30px;
-}
-.simple-overlay .prev > div:before,
-.simple-overlay .prev > div:after,
-.simple-overlay .next > div:before,
-.simple-overlay .next > div:after{
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-.simple-overlay .prev > div:before,
-.simple-overlay .next > div:before{
-  right: 0;
-  left: 0;
-  width: 10px;
-  height: 2px;
-  background-color: #fff;
-}
-.simple-overlay .prev > div:after,
-.simple-overlay .next > div:after{
-  width: 0;
-  height: 0;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-}
-.simple-overlay .prev > div:after{
-  left: 6px;
-  border-right: 6px solid #fff;
-}
-.simple-overlay .next > div:after{
-  right: 6px;
-  border-left: 6px solid #fff;
 }
