@@ -6,6 +6,10 @@
 		if( !$( '.simple-overlay-bg' ).length )
 			$( 'body' ).prepend( '<div class="simple-overlay-bg"></div>' );
 
+		// detect: touch
+		if( 'ontouchstart' in document.documentElement )
+			$( '.simple-overlay' ).addClass( 'touch' );
+
 		function overlaySizing(){
 			// dimensions
 			var $overlay = $( '.simple-overlay' ),
@@ -64,18 +68,20 @@
 		}
 
 		// group navigation
-		$( document ).on( 'mouseenter', '.simple-overlay .next', function(){
-			$( '.simple-overlay' ).addClass( 'next-o' );
-		} );
-		$( document ).on( 'mouseleave', '.simple-overlay .next', function(){
-			$( '.simple-overlay' ).removeClass( 'next-o' );
-		});
-		$( document ).on( 'mouseenter', '.simple-overlay .prev', function(){
-			$( '.simple-overlay' ).addClass( 'prev-o' );
-		} );
-		$( document ).on( 'mouseleave', '.simple-overlay .prev', function(){
-			$( '.simple-overlay' ).removeClass( 'prev-o' );
-		});
+		if( !( 'ontouchstart' in document.documentElement ) ){
+			$( document ).on( 'mouseenter', '.simple-overlay .next', function(){
+				$( '.simple-overlay' ).addClass( 'next-o' );
+			} );
+			$( document ).on( 'mouseleave', '.simple-overlay .next', function(){
+				$( '.simple-overlay' ).removeClass( 'next-o' );
+			});
+			$( document ).on( 'mouseenter', '.simple-overlay .prev', function(){
+				$( '.simple-overlay' ).addClass( 'prev-o' );
+			} );
+			$( document ).on( 'mouseleave', '.simple-overlay .prev', function(){
+				$( '.simple-overlay' ).removeClass( 'prev-o' );
+			});
+		}
 		$( document ).on( 'click', '.simple-overlay .prev, .simple-overlay .next', function( e ){
 			var $current = $( '.simple-overlay.on' ),
 				direction = $( e.currentTarget ).attr( 'class' );

@@ -136,6 +136,9 @@
 .simple-overlay .close:hover > div > div,
 .simple-overlay .close:hover > div:before,
 .simple-overlay .close:hover > div:after,
+.simple-overlay.touch .close > div > div,
+.simple-overlay.touch .close > div:before,
+.simple-overlay.touch .close > div:after,
 .simple-overlay.prev-o .close > div > div,
 .simple-overlay.prev-o .close > div:before,
 .simple-overlay.prev-o .close > div:after,
@@ -224,8 +227,8 @@
   height: 40px;
   margin: 0 auto;
 }
-body.touch .simple-overlay .prev.touch,
-body.touch .simple-overlay .next.touch{
+.simple-overlay.touch .prev.touch,
+.simple-overlay.touch .next.touch{
   display: block;
 }
 .simple-overlay .prev.touch{
