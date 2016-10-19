@@ -1,8 +1,8 @@
 # Simple Overlay
 
-A simple responsive overlay. Requires jQuery 1.7+.
+A simple responsive overlay. Requires jQuery 1.7+. Currently, this plugin only works for images and captions are not yet supported.
 
-Disclaimers: **This plugin has not been thoroughly tested**. Currently, this plugin only works for images. Captions are not supported yet.
+Tested support for: Chrome, Firefox, Safari.
 
 ## Setup
 

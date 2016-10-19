@@ -128,6 +128,22 @@
   margin: auto;
   background-color: #000;
 }
+.simple-overlay .close > div > div,
+.simple-overlay .close > div:before,
+.simple-overlay .close > div:after{
+	opacity: 0.333;
+}
+.simple-overlay .close:hover > div > div,
+.simple-overlay .close:hover > div:before,
+.simple-overlay .close:hover > div:after,
+.simple-overlay.prev-o .close > div > div,
+.simple-overlay.prev-o .close > div:before,
+.simple-overlay.prev-o .close > div:after,
+.simple-overlay.next-o .close > div > div,
+.simple-overlay.next-o .close > div:before,
+.simple-overlay.next-o .close > div:after{
+	opacity: 1;
+}
 .simple-overlay .close > div:before,
 .simple-overlay .close > div:after{
   width: 20px;

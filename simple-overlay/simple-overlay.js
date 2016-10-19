@@ -110,7 +110,7 @@
 						openOverlay( group[ group.length - 1 ].element.attr( 'data-overlay' ) );
 				}
 				if( direction === 'next' ){
-					if( $current.attr( 'data-overlay' ) < group.length )
+					if( slidePos < group.length - 1 )
 						openOverlay( group[ slidePos + 1 ].element.attr( 'data-overlay' ) );
 					else
 						openOverlay( group[ 0 ].element.attr( 'data-overlay' ) );
@@ -123,7 +123,7 @@
 			var overlayID = id,
 				src = $( this ).attr( 'href' ),
 				group =
-					$( this ).attr( 'data-group' ) ?
+					$( this ).attr( 'data-group' ) && ( $( 'a[ data-group="' + $( this ).attr( 'data-group' ) + '" ]' ).length > 1 ) ?
 						' data-group="' + $( this ).attr( 'data-group' ) + '"' :
 							'',
 				groupClass =
