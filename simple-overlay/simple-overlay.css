@@ -197,7 +197,7 @@
   display: none;
   padding: 0;
   border: none;
-  background-color: transparent;
+	background-color: rgba( 0, 0, 0, 0 ); /* fixes <ie11 glitch where transparent links are not click-able when elements behind them have color */
   cursor: pointer;
   outline: none;
 }

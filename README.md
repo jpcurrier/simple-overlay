@@ -2,7 +2,7 @@
 
 A simple responsive overlay. Requires jQuery 1.7+. Currently, this plugin only works for images and captions are not yet supported.
 
-Tested support for: Chrome, Firefox, Safari.
+Support: Chrome, Firefox, Safari, IE8+. Older browsers that do not support CSS3 drop transition effects but retain basic functionality.
 
 ## Setup
 
